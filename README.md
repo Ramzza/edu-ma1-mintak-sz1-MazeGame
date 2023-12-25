@@ -1,0 +1,1 @@
+# edu-ma1-mintak-sz1-MazeGame
