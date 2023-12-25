@@ -11,42 +11,13 @@ public class Room extends MapSite {
     private int roomNumber;
     protected ArrayList<Door> doors;
 
-    public Room() {
-        this.init();
-    }
-
     public Room(int roomNo) {
-        this.sides = new MapSite[4];
-        this.initialize(roomNo);
-    }
-
-    public Room(Room r) {
-        this.roomNumber = r.roomNumber;
-        this.doors = r.doors;
-        this.sides = r.sides;
-    }
-
-    public Room clone() {
-        return new Room(this);
-    }
-
-    private void init() {
-        this.sides = new MapSite[4];
-        this.doors = new ArrayList<>();
-        this.roomNumber = 0;
-        this.x = 0;
-        this.y = 0;
-
-        this.width = 0;
-        this.height = 0;
-    }
-
-    public void initialize(int roomNo) {
-        this.sides = new MapSite[4];
-        this.doors = new ArrayList<>();
         this.roomNumber = roomNo;
-        this.x = roomNo / MAP_SIZE * (ROOM_SIZE - 1) * WALL_SIZE;
-        this.y = roomNo % MAP_SIZE * (ROOM_SIZE - 1) * WALL_SIZE;
+        this.sides = new MapSite[4];
+        this.doors = new ArrayList<>();
+
+        this.x = this.roomNumber / MAP_SIZE * (ROOM_SIZE - 1) * WALL_SIZE;
+        this.y = this.roomNumber % MAP_SIZE * (ROOM_SIZE - 1) * WALL_SIZE;
 
         this.width = (ROOM_SIZE - 1) * WALL_SIZE;
         this.height = this.width;
@@ -102,5 +73,4 @@ public class Room extends MapSite {
         mapSite = this.getSide(Direction.EAST);
         mapSite.calculateSize(this.x + (ROOM_SIZE - 1) * WALL_SIZE, this.y, 1, ROOM_SIZE - 1);
     }
-
 }

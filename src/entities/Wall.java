@@ -10,15 +10,7 @@ public class Wall extends MapSite {
     private static final String IMG_PATH_WALL = "res/Wall.png";
 
     public Wall() {
-        this.initialize();
-    }
-
-    public Wall(Wall w) {
-        this.models = w.models;
-    }
-
-    public Wall clone() {
-        return new Wall(this);
+        this.initWall();
     }
 
     public void enter() {
@@ -41,12 +33,13 @@ public class Wall extends MapSite {
         }
     }
 
-    public void initialize() {
-        Model model = new Model(IMG_PATH_WALL);
+    private void initWall() {
+        Model model;
         this.models = new ArrayList<>();
 
         for (int i = 0; i < ROOM_SIZE; i++) {
-            this.models.add(model.clone());
+            model = new Model(IMG_PATH_WALL);
+            this.models.add(model);
         }
     }
 

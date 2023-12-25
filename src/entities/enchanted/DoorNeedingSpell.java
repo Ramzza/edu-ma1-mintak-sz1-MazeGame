@@ -10,24 +10,6 @@ public class DoorNeedingSpell extends Door {
         this.setIsOpen(false);
     }
 
-    public DoorNeedingSpell() {
-        this.setIsOpen(false);
-    }
-
-    public DoorNeedingSpell(DoorNeedingSpell d) {
-    }
-
-    @Override
-    public DoorNeedingSpell clone() {
-        return new DoorNeedingSpell(this);
-    }
-
-    @Override
-    public void initialize(Room r1, Room r2) {
-        super.initialize(r1, r2);
-        this.setIsOpen(false);
-    }
-
     @Override
     public void enter() {
         if (this.collisionString.equals("Door") && !this.getIsOpen() && this.logEnter) {

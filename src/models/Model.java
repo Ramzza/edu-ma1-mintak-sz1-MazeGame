@@ -30,25 +30,6 @@ public class Model {
         this.init(path);
     }
 
-    public Model() {
-        this.x = 0;
-        this.y = 0;
-        this.visible = false;
-    }
-
-    public Model(Model m) {
-        this.x = m.x;
-        this.y = m.y;
-        this.image = m.image;
-        this.width = m.width;
-        this.height = m.height;
-        this.visible = m.visible;
-    }
-
-    public Model clone() {
-        return new Model(this);
-    }
-
     protected void init(String path) {
         this.loadImage(path);
         this.getImageDimensions();

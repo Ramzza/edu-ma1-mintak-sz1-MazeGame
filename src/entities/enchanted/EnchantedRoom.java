@@ -16,29 +16,8 @@ public class EnchantedRoom extends Room {
         this.key = new Key();
     }
 
-    public EnchantedRoom(EnchantedRoom er) {
-        this.doors = er.doors;
-        this.key = er.key;
-    }
-
-    public EnchantedRoom() {
-        super();
-        this.key = new Key();
-    }
-
-    @Override
-    public EnchantedRoom clone() {
-        return new EnchantedRoom(this);
-    }
-
     public boolean hasKey() {
         return this.key.isVisible();
-    }
-
-    @Override
-    public void initialize(int roomNo) {
-        super.initialize(roomNo);
-        this.key = (Key) this.key.clone();
     }
 
     @Override

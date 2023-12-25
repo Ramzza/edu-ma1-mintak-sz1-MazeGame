@@ -10,20 +10,6 @@ public class Key extends Model {
         super(IMG_PATH_KEY);
     }
 
-    public Key(Key m) {
-        this.x = m.x;
-        this.y = m.y;
-        this.image = m.image;
-        this.width = m.width;
-        this.height = m.height;
-        this.visible = m.visible;
-    }
-
-    @Override
-    public Model clone() {
-        return new Key(this);
-    }
-
     public boolean checkIntersect(Rectangle rp) {
         if (rp.intersects(this.getBounds())) {
             this.setVisible(false);

@@ -17,14 +17,6 @@ public class Maze {
         this.rooms = new ArrayList<>();
     }
 
-    public Maze(Maze m) {
-        this.rooms = m.rooms;
-    }
-
-    public Maze clone() {
-        return new Maze(this);
-    }
-
     public void addRoom(Room a) {
         this.rooms.add(a);
     }

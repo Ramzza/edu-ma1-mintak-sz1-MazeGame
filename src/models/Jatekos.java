@@ -26,7 +26,7 @@ public class Jatekos extends Model {
 
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
-        int speed = 4;
+        int speed = 8;
 
         if (key == KeyEvent.VK_LEFT) {
             dx = -speed;

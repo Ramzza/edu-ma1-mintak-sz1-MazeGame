@@ -21,28 +21,9 @@ public class Door extends MapSite {
     private int innerY;
     private int innerWidth;
 
-    public Door() {
-
-    }
-
     public Door(Room a, Room b) {
-        this.initialize(a, b);
-    }
-
-    public Door(Door d) {
-        this.room1 = d.room1;
-        this.room2 = d.room2;
-        this.isOpen = d.isOpen;
-        this.models = d.models;
-    }
-
-    public Door clone() {
-        return new Door(this);
-    }
-
-    public void initialize(Room r1, Room r2) {
-        this.room1 = r1;
-        this.room2 = r2;
+        this.room1 = a;
+        this.room2 = b;
         this.isOpen = true;
         this.initDoor();
     }
@@ -154,16 +135,17 @@ public class Door extends MapSite {
     }
 
     private void initDoor() {
-        Model modelDoor = new Model(IMG_PATH_DOOR);
-        Model modelWall = new Model(IMG_PATH_WALL);
+        Model model;
         int doorSide = ROOM_SIZE / 4;
         this.models = new ArrayList<>();
 
         for (int i = 0; i < ROOM_SIZE; i++) {
             if (i > doorSide && i < ROOM_SIZE - 1 - doorSide) {
-                this.models.add(modelDoor.clone());
+                model = new Model(IMG_PATH_DOOR);
+                this.models.add(model);
             } else {
-                this.models.add(modelWall.clone());
+                model = new Model(IMG_PATH_WALL);
+                this.models.add(model);
             }
         }
 
